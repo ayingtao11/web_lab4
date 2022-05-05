@@ -52,9 +52,8 @@ Users need to use the command:
 in order to start the server. I connect my server in port 8000, users need to open the brower and go to http://localhost:8000 to open the server site after used the node command.
 If users want to check all rows of particular table, include car_owners, car_judges, car_body_frame, car_engine, car_racer, and car_mods, users can go to: http://localhost:8000/api/table_name
 if users want to check a single row of table, go to: 
-http://localhost:8000/table_name/Car_ID_number
-
-For example: http://localhost:8000/car_judges/10
+http://localhost:8000/api/table_name/Car_ID_number
+for example: http://localhost:8000/api/car_judges/10
 
 
 In addition, I found this website is particularly useful:
