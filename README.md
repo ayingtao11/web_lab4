@@ -6,6 +6,7 @@ app.get("/api/table_name", (req, res, next) => {
 to get all of the rows and fields from particular table from database.
 
 I use
+
 app.get("/api/car_owners/:id", (req, res, next) => {
 to get a single row by Car_ID as id from particular table from database.
 
