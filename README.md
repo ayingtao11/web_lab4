@@ -1,21 +1,39 @@
 # web_lab4
-A description of your API endpoints
+A description of my API endpoints
+
+All of my API enpoints are in server.js file.
 
 for all of the tables, include car_owners, car_judges, car_body_frame, car_engine, car_racer, and car_mods, I use
-app.get("/api/table_name", (req, res, next) => {
+`app.get("/api/table_name", (req, res, next) => {`
+and 
+`var sql = "select * from car_judges"`
 to get all of the rows and fields from particular table from database.
 
 I use
 `app.get("/api/car_owners/:id", (req, res, next) => {`
+and
+`var sql = "select * from car_judges where Car_ID = ?"
+var params = [req.params.id]`
 to get a single row by Car_ID as id from particular table from database.
 
 I use
 `app.post("/api/car_owners/", (req, res, next) => {`
+and
+`var sql ='INSERT INTO car_judges (Car_ID,Judge_ID,Judge_Name) VALUES (?,?,?)'
+var params =[data.Car_ID,data.Judge_ID,data.Judge_Name]`
 to insert new data from user input into the table.
 
 I use
 `app.patch("/api/car_owners/:id", (req, res, next) => {`
-to update the new data using id for the table.
+and
+`db.run(
+        `UPDATE car_judges set 
+            Car_ID = COALESCE(?,Car_ID), 
+            Judge_ID = COALESCE(?,Judge_ID), 
+            Name = COALESCE(?,Judge_Name), 
+            WHERE id = ?`,
+        [data.Car_ID,data.Judge_ID,data.Judge_Name,req.params.id]`
+to update the new data using Car_ID as id for the table.
 
 I use
 `var bodyParser = require("body-parser");
