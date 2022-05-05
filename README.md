@@ -46,5 +46,12 @@ and
         })`
 to make my table in JSON format.
 
+The lab requires nodejs, express, sqlite3, md5, npm, ubuntu for windows in order to accomplish.
+Users need to use the command:
+`node server.js`
+In order to start the server. I connect my server in port 8000, users need to open the brower and go to http://localhost:8000 to open the server site after used the node command.
+If users want to check all rows of particular table, include car_owners, car_judges, car_body_frame, car_engine, car_racer, and car_mods, users can go to: http://localhost:8000/api/table_name
+if users want to check a single row of table, go to: 
+http://localhost:8000
 In addition, I found this website is particularly useful:
 https://developerhowto.com/2018/12/29/build-a-rest-api-with-node-js-and-express-js/
