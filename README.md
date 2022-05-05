@@ -10,22 +10,22 @@ I use
 to get a single row by Car_ID as id from particular table from database.
 
 I use
-app.post("/api/car_owners/", (req, res, next) => {
+`app.post("/api/car_owners/", (req, res, next) => {`
 to insert new data from user input into the table.
 
 I use
-app.patch("/api/car_owners/:id", (req, res, next) => {
+`app.patch("/api/car_owners/:id", (req, res, next) => {`
 to update the new data using id for the table.
 
 I use
-var bodyParser = require("body-parser");
+`var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json());`
 and
-res.json({
+`res.json({
             "message":"get success",
             "data":row
-        })
+        })`
 to make my table in JSON format.
 
 In addition, I found this website is particularly useful:
