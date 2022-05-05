@@ -21,6 +21,7 @@ app.get("/", (req, res, next) => {
 
 // Insert here other API endpoints
 
+
 // Default response for any other request
 app.use(function(req, res){
     res.status(404);
