@@ -1,3 +1,4 @@
+// Learned from the website: https://developerhowto.com/2018/12/29/build-a-rest-api-with-node-js-and-express-js/
 // Create express app
 var express = require("express")
 var app = express()
@@ -15,6 +16,7 @@ var HTTP_PORT = 8000
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
+
 // Root endpoint
 app.get("/", (req, res, next) => {
     var sql = "select * from car_owners"
@@ -31,7 +33,8 @@ app.get("/", (req, res, next) => {
     });
 });
 
-//API endpoints
+//API endpoints for table car_owners
+//get all of the rows and fields from particular table from database.
 app.get("/api/car_owners", (req, res, next) => {
     var sql = "select * from car_owners"
     var params = []
@@ -46,7 +49,7 @@ app.get("/api/car_owners", (req, res, next) => {
         })
       });
 });
-
+//get a single row by Car_ID as id from particular table from database.
 app.get("/api/car_owners/:id", (req, res, next) => {
     var sql = "select * from car_owners where Car_ID = ?"
     var params = [req.params.id]
@@ -61,7 +64,7 @@ app.get("/api/car_owners/:id", (req, res, next) => {
         })
       });
 });
-
+//insert new data from user input into the table.
 app.post("/api/car_owners/", (req, res, next) => {
     var errors=[]
     if (!req.body.Car_ID){
@@ -108,7 +111,7 @@ app.post("/api/car_owners/", (req, res, next) => {
         })
     });
 })
-
+//update the new data using Car_ID as id for the table
 app.patch("/api/car_owners/:id", (req, res, next) => {
     var data = {
         Car_ID: req.body.Car_ID,
@@ -141,7 +144,8 @@ app.patch("/api/car_owners/:id", (req, res, next) => {
     });
 })
 
-//API endpoints
+//API endpoints for table car_judges
+//get all of the rows and fields from particular table from database.
 app.get("/api/car_judges", (req, res, next) => {
     var sql = "select * from car_judges"
     var params = []
@@ -156,7 +160,7 @@ app.get("/api/car_judges", (req, res, next) => {
         })
       });
 });
-
+//get a single row by Car_ID as id from particular table from database.
 app.get("/api/car_judges/:id", (req, res, next) => {
     var sql = "select * from car_judges where Car_ID = ?"
     var params = [req.params.id]
@@ -171,7 +175,7 @@ app.get("/api/car_judges/:id", (req, res, next) => {
         })
       });
 });
-
+//insert new data from user input into the table.
 app.post("/api/car_judges/", (req, res, next) => {
     var errors=[]
     if (!req.body.Car_ID){
@@ -206,7 +210,7 @@ app.post("/api/car_judges/", (req, res, next) => {
         })
     });
 })
-
+//update the new data using Car_ID as id for the table.
 app.patch("/api/car_judges/:id", (req, res, next) => {
     var data = {
         Car_ID: req.body.Car_ID,
@@ -233,7 +237,8 @@ app.patch("/api/car_judges/:id", (req, res, next) => {
     });
 })
 
-//API endpoints
+//API endpoints for table car_body_frame
+//get all of the rows and fields from particular table from database.
 app.get("/api/car_body_frame", (req, res, next) => {
     var sql = "select * from car_body_frame"
     var params = []
@@ -248,7 +253,7 @@ app.get("/api/car_body_frame", (req, res, next) => {
         })
       });
 });
-
+//get a single row by Car_ID as id from particular table from database.
 app.get("/api/car_body_frame/:id", (req, res, next) => {
     var sql = "select * from car_body_frame where Car_ID = ?"
     var params = [req.params.id]
@@ -263,7 +268,7 @@ app.get("/api/car_body_frame/:id", (req, res, next) => {
         })
       });
 });
-
+// insert new data from user input into the table.
 app.post("/api/car_body_frame/", (req, res, next) => {
     var errors=[]
     if (!req.body.Car_ID){
@@ -311,7 +316,7 @@ app.post("/api/car_body_frame/", (req, res, next) => {
         })
     });
 })
-
+//update the new data using Car_ID as id for the table.
 app.patch("/api/car_body_frame/:id", (req, res, next) => {
     var data = {
         Car_ID: req.body.Car_ID,
@@ -345,7 +350,9 @@ app.patch("/api/car_body_frame/:id", (req, res, next) => {
             })
     });
 })
-//API endpoints
+
+//API endpoints for car_engine
+//get all of the rows and fields from particular table from database.
 app.get("/api/car_engine", (req, res, next) => {
     var sql = "select * from car_engine"
     var params = []
@@ -360,7 +367,7 @@ app.get("/api/car_engine", (req, res, next) => {
         })
       });
 });
-
+//get a single row by Car_ID as id from particular table from database.
 app.get("/api/car_engine/:id", (req, res, next) => {
     var sql = "select * from car_engine where Car_ID = ?"
     var params = [req.params.id]
@@ -375,7 +382,7 @@ app.get("/api/car_engine/:id", (req, res, next) => {
         })
       });
 });
-
+//insert new data from user input into the table.
 app.post("/api/car_engine/", (req, res, next) => {
     var errors=[]
     if (!req.body.Car_ID){
@@ -423,7 +430,7 @@ app.post("/api/car_engine/", (req, res, next) => {
         })
     });
 })
-
+//update the new data using Car_ID as id for the table.
 app.patch("/api/car_engine/:id", (req, res, next) => {
     var data = {
         Car_ID: req.body.Car_ID,
@@ -456,7 +463,9 @@ app.patch("/api/car_engine/:id", (req, res, next) => {
             })
     });
 })
-//API endpoints
+
+//API endpoints for table car_racer
+//get all of the rows and fields from particular table from database.
 app.get("/api/car_racer", (req, res, next) => {
     var sql = "select * from car_racer"
     var params = []
@@ -471,7 +480,7 @@ app.get("/api/car_racer", (req, res, next) => {
         })
       });
 });
-
+//get a single row by Car_ID as id from particular table from database.
 app.get("/api/car_racer/:id", (req, res, next) => {
     var sql = "select * from car_owners where Car_ID = ?"
     var params = [req.params.id]
@@ -486,7 +495,7 @@ app.get("/api/car_racer/:id", (req, res, next) => {
         })
       });
 });
-
+//insert new data from user input into the table.
 app.post("/api/car_racer/", (req, res, next) => {
     var errors=[]
     if (!req.body.Car_ID){
@@ -530,7 +539,7 @@ app.post("/api/car_racer/", (req, res, next) => {
         })
     });
 })
-
+//update the new data using Car_ID as id for the table.
 app.patch("/api/car_racer/:id", (req, res, next) => {
     var data = {
         Car_ID: req.body.Car_ID,
@@ -561,7 +570,9 @@ app.patch("/api/car_racer/:id", (req, res, next) => {
             })
     });
 })
-//API endpoints
+
+//API endpoints for car_mods
+//get all of the rows and fields from particular table from database.
 app.get("/api/car_mods", (req, res, next) => {
     var sql = "select * from car_mods"
     var params = []
@@ -576,7 +587,7 @@ app.get("/api/car_mods", (req, res, next) => {
         })
       });
 });
-
+//get a single row by Car_ID as id from particular table from database.
 app.get("/api/car_mods/:id", (req, res, next) => {
     var sql = "select * from car_mods where Car_ID = ?"
     var params = [req.params.id]
@@ -591,7 +602,7 @@ app.get("/api/car_mods/:id", (req, res, next) => {
         })
       });
 });
-
+//insert new data from user input into the table.
 app.post("/api/car_mods/", (req, res, next) => {
     var errors=[]
     if (!req.body.Car_ID){
@@ -660,7 +671,7 @@ app.post("/api/car_mods/", (req, res, next) => {
         })
     });
 })
-
+//update the new data using Car_ID as id for the table.
 app.patch("/api/car_mods/:id", (req, res, next) => {
     var data = {
         Car_ID: req.body.Car_ID,
